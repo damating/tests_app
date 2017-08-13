@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  duration_in_secs: 1
+  start_date: 2017-08-12 14:39:48
+  end_date: 2017-08-12 14:39:48
+  group: one
+
+two:
+  name: MyString
+  description: MyText
+  duration_in_secs: 1
+  start_date: 2017-08-12 14:39:48
+  end_date: 2017-08-12 14:39:48
+  group: two

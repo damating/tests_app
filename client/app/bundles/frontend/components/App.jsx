@@ -1,37 +1,30 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
-import Test from '../components/Test';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import GroupBox from '../components/groups/GroupBox';
+import GroupView from '../components/groups/GroupView';
+import Test from '../components/tests/Test';
+import SolvingTest from '../components/tests/SolvingTest';
 
 export default class App extends React.Component {
-  // static propTypes = {
-  //   name: PropTypes.string.isRequired, // this is passed from the Rails view
-  // };
-
-  /**
-   * @param props - Comes from your rails view.
-   * @param _railsContext - Comes from React on Rails
-   */
-  // constructor(props, _railsContext) {
-  //   super(props);
-
-  //   // How to set initial state in ES6 class syntax
-  //   // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-  //   this.state = { name: this.props.name };
-  // }
-
-  // updateName = (name) => {
-  //   this.setState({ name });
-  // };
-
   render() {
     return (
       <Router>
-        <Route exact path="/" component={Test}/>
+        <div>
+          <nav className="navbar navbar-default navbar-fixed-top">
+            <ul className="nav navbar-nav">
+              <li className="active">
+                <Link to='/'>Grupy</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <hr/>
+
+          <Route exact path="/" component={GroupBox}/>
+          <Route component={GroupView} path='/groups/:groupId' />
+          <Route exact component={Test} path='/tests/:testId' />
+          <Route component={SolvingTest} path='/tests/:testId/solving' />
+        </div>
       </Router>
     );
   }
