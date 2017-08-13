@@ -40,7 +40,7 @@ export default class GroupBox extends React.Component {
                                                        editGroup={this.editGroup} {...group} />);
 
     return (
-      <div>
+      <div className="container">
         <GroupForm sendGroup={this.addGroup} />
         <br />
         <div className="row">

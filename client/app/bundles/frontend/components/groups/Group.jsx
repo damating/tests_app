@@ -40,7 +40,7 @@ export default class Group extends React.Component {
   render() {
     var name = this.state.editable ? <input type='text' ref="groupName" className="form-control" defaultValue={this.props.name} /> : <h5 className="panel-title">{this.props.name}</h5>;
     var description = this.state.editable ? <textarea ref="groupTextArea" className="form-control" rows="3" defaultValue={this.props.description}></textarea> : <p className="m-b">{this.props.description}</p>
-    console.log(this.props);
+
     return (
       <div className="col-md-4 m-b-lg">
         <div className="panel panel-default panel-profile m-b-0">
