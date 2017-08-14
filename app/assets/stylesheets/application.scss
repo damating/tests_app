@@ -17,5 +17,35 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
-body { padding-top: 90px; }
+body {
+  padding-top: 90px;
+  font-size: 18px;
+}
+
+.questionSlider {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  height: 200px;
+  color: black;
+  background: white;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-size: 50px !important;
+    color: black !important;
+}
+
+.slick-slide {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.react-countdown-clock {
+  margin-left: 50px;
+}

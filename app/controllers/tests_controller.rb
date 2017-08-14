@@ -30,6 +30,23 @@ class TestsController < BaseController
     render json: test
   end
 
+  def calculate
+    render json: { success: false } if params[:test].nil?
+
+    params[:test] = JSON.parse(params[:test])
+    test = Test.find(params[:test][:id])
+    check_hash = test.questions.map { |q| [q.id, q.question_options.map { |o| [o.id, o.is_correct] }.to_h ] }.to_h
+
+    count = 0
+    params[:test][:questions].each do |question|
+      correct_options = check_hash[question[:id]]
+      answers = question[:question_options].map { |o| [o[:id], o[:is_correct]]}.to_h
+      count += 1 if correct_options == answers
+    end
+
+    render json: {points: count}
+  end
+
   def update
     test = Test.find(params[:id])
     test.update_attributes(test_params)

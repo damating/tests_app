@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create, :destroy, :update, :show] do
     member do
       get :to_solve
+      post :calculate
     end
   end
 
