@@ -19,9 +19,8 @@ export default class App extends React.Component {
           </nav>
 
           <Route exact path="/" component={GroupBox}/>
-          <Route component={GroupView} path='/groups/:groupId' />
-          <Route exact component={Test} path='/tests/:testId' />
-          <Route component={SolvingTest} path='/tests/:testId/solving' />
+          <Route exact component={GroupView} path='/groups/:groupId' />
+          <Route component={SolvingTest} path='/groups/:groupId/tests/:testId' />
         </div>
       </Router>
     );

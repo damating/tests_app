@@ -12,7 +12,7 @@ export default class GroupView extends React.Component {
   }
 
   componentDidMount() {
-    var groupId = this.props.match.params.groupId;
+    let groupId = this.props.match.params.groupId;
 
     $.ajax({
       type: 'GET',
@@ -37,7 +37,7 @@ export default class GroupView extends React.Component {
       url: `/tests/${id}`,
       type: 'DELETE',
       success: (response) => {
-        var newTests = this.state.tests.filter((test) => {
+        let newTests = this.state.tests.filter((test) => {
           return test.id != id;
         });
 
@@ -57,8 +57,8 @@ export default class GroupView extends React.Component {
   render() {
     let tests_links = this.state.tests.map((test, index) =>
       <div key={index} className="form-group">
-        <Link to={`/tests/${test.id}`} key={test.id} className="list-group-item">{test.name}</Link>
-        <Link to={`/tests/${test.id}/solving`} className="btn btn-default">Rozwiąż test</Link>
+        {test.name}
+        <Link to={`${this.props.match.url}/tests/${test.id}`} className="btn btn-default">Rozwiąż test</Link>
         <button onClick={() => this.deleteTest(test.id)} className="btn btn-danger">Usuń test</button>
       </div>
     );

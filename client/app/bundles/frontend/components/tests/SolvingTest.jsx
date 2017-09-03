@@ -25,7 +25,6 @@ export default class SolvingTest extends React.Component {
   }
 
   calculateTest = () => {
-    console.log("KONIEC TESTU!");
     let test = JSON.stringify(this.state.test);
     $.ajax({
       type: 'POST',
