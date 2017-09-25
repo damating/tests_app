@@ -26,12 +26,11 @@ export default class Question extends React.Component {
     this.props.handleUpdateQuestion(newQuesionOptionsList, 'question_options_attributes', this.props.arrayIndex);
   };
 
-  handleUpdateQuestionOptions = (questionOption, questionOptionIndex) => {
-    // let newQuesionOptionsList = this.state.question_options;
-    // newQuesionOptionsList[questionOptionIndex] = questionOption;
-    // console.log('QUESTION');
-    console.log(this.state.question_options);
-    this.props.handleUpdateQuestion(this.state.question_options, 'question_options_attributes', this.props.arrayIndex);
+  handleUpdateQuestionOptions = (name, value, questionOptionIndex) => {
+    let newQuesionOptionsList = this.state.question_options;
+    newQuesionOptionsList[questionOptionIndex][name] = value;
+
+    this.props.handleUpdateQuestion(newQuesionOptionsList, 'question_options_attributes', this.props.arrayIndex);
   };
 
   handleInputChange = (event) => {
